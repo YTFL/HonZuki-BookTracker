@@ -22,6 +22,8 @@
 
 HonZuki is a feature-rich book management application designed for book lovers who want to organize their physical book collection digitally. Track your reading progress, organize books into custom shelves, manage series, and sync everything across all your devices.
 
+![Home Dashboard](screenshots/home.png)
+
 ---
 
 ## ✨ Key Features
@@ -39,6 +41,12 @@ HonZuki is a feature-rich book management application designed for book lovers w
 * Smart series auto-complete and prompts
 * Grid and list views for books
 
+![Library View](screenshots/library.png)
+
+![Series View](screenshots/series.png)
+
+![Book Details](screenshots/book_details.png)
+
 ### 📊 Statistics & Insights
 
 * Comprehensive stats dashboard
@@ -49,6 +57,8 @@ HonZuki is a feature-rich book management application designed for book lovers w
 * Books by reading status and format
 * Year-based reading stats (lifetime + per year)
 * Reading time estimates with configurable reading speed
+
+![Statistics](screenshots/stats.png)
 
 ### 🔍 Discovery & Browsing
 
@@ -65,11 +75,25 @@ HonZuki is a feature-rich book management application designed for book lovers w
   * Genres
   * Series
 
+![Search](screenshots/search.png)
+
+![Authors View](screenshots/authors.png)
+
+![Genres View](screenshots/genres.png)
+
 ### 💖 Wishlist
 
 * Separate wishlist with full metadata support
 * One-tap move from wishlist to library
 * Search and filter wishlist items
+
+### 📖 Custom Shelves
+
+* Create personalized shelves for better organization
+* Organize books by themes, reading goals, or any custom category
+* Easy shelf management and book assignment
+
+![Shelves](screenshots/shelves.png)
 
 ### 🎨 Customization
 
@@ -81,12 +105,32 @@ HonZuki is a feature-rich book management application designed for book lovers w
 * Adaptive book detail backgrounds based on cover colors
 * Multiple font options
 
+![Settings](screenshots/settings.png)
+
 ### 💾 Data Management
 
 * Local-first storage (browser-based)
 * Import/export data (CSV & JSON)
 * Export library, wishlist, settings, and themes
 * No cloud sync (yet)
+
+### ➕ Adding Books
+
+* Multiple ways to add books to your collection:
+  * Search by title with automatic metadata fetching
+  * Scan ISBN barcode (requires HTTPS)
+  * Manual entry for complete control
+* Rich metadata support
+
+![Add Book](screenshots/add_book.png)
+
+### 🔗 Sharing (Limited)
+
+* Share your library, series, or custom collections
+* Create public share links (when authentication is enabled)
+* Currently limited due to authentication being disabled
+
+![Sharing](screenshots/shares.png)
 
 ### 🔐 Accounts (Planned / Limited)
 
