@@ -5,23 +5,19 @@ All notable changes to HonZuki will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.3.1] - 2025-12-24
+## [1.4.0] - 2025-12-25
 ### ✨ Added
-- **Book Details** - Added "Move to Wishlist" option in the "More" menu to send a book back to your wishlist (resets reading progress)
+- **Wishlist Sharing** - Users can now make their wishlist public and share it via a unique link. The link is generated with a default name of "<User>'s Wishlist".
+
 
 ### 🔧 Improved
-- **Add Book**
-  - **Duplicate Prevention** - Added strict, aggressive duplicate prevention. It effectively normalizes titles (ignoring "Vol", "Volume", "Book", "Part") to catch matches like "The Boxer Vol 3" and "The Boxer 3", while correctly distinguishing distinct editions like "The Boxer Novel".
-  - **Smart Search** - Search results now automatically filter out books you already own or have wishlisted. The system now fetches **80 books** per search to ensure you still get 40 relevant results even after filtering.
-- **Library**
-  - **Filter UX** - Removed redundant "Genre" filter (since dedicated page exists) and added scrolling to filter dropdowns for better handling of long lists
-- **Add Book**
-  - **Defaults** - "Format" field now defaults to "Paperback"
-- **Search**
-  - **Series Parsing** - Title search now prioritizes matching against your *existing* library series, preventing duplicate or mismatched series entries
+- **Natural Sort** - Improved sorting logic for titles and authors to correctly handle numbers (e.g., "Vol 2" sorts before "Vol 10").
+
 
 ### 🐛 Fixed
-- **Navigation Scroll** - Fixed issue where pages would remain scrolled down after navigation (e.g., after adding a book to wishlist)
+- **Series Duplication** - Fixed an issue where assigning a book to an existing series would sometimes create a duplicate series entry instead of linking to the existing one.
+- **Share Counts** - Fixed an issue where share book counts would display as 0 or be inaccurate due to race conditions or missing data fields.
+
 
 
 ### ⚠️ Known Issues / Current Status
