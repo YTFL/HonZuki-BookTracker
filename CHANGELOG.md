@@ -5,25 +5,25 @@ All notable changes to HonZuki will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.4.0] - 2025-12-25
+## [2.11.0] - 2025-12-27
 ### ✨ Added
-- **Wishlist Sharing** - Users can now make their wishlist public and share it via a unique link. The link is generated with a default name of "<User>'s Wishlist".
+- **Filtered Sharing** - Create shares based on dynamic criteria (Status, Shelves, Authors, Genres, Year).
+- **Custom Share Workflow** - New "Select Books" step with search and checkboxes for Custom Shares.
 
+### 🎨 Redesigned
+- **Share Details UI** - Improved "Share" and "View Public" buttons with standard icons and native behavior.
+- **Improved Interaction** - Clickable book rows in selection screens.
 
-### 🔧 Improved
-- **Natural Sort** - Improved sorting logic for titles and authors to correctly handle numbers (e.g., "Vol 2" sorts before "Vol 10").
-
-
-### 🐛 Fixed
-- **Series Duplication** - Fixed an issue where assigning a book to an existing series would sometimes create a duplicate series entry instead of linking to the existing one.
-- **Share Counts** - Fixed an issue where share book counts would display as 0 or be inaccurate due to race conditions or missing data fields.
-
-
+### � Fixed
+- **Public Share Access** - Fixed links on public pages to point to correct public routes, preventing access errors.
+- **Filtered Share Display** - Fixed public pages showing 0 books for filtered shares.
+- **Permissions** - Updated rules to allow filtered shares.
+- **Creation Errors** - Fixed undefined field errors during custom share creation.
 
 ### ⚠️ Known Issues / Current Status
 - 🔴 **Authentication Disabled** - All users must use Guest Mode
 - ❌ **No Cloud Sync** - Data stored locally only (in browser localStorage)
-- ❌ **No Sharing Features** - Public share links disabled
+- ✅ **Sharing Features** - Public share links enabled for authenticated users
 - ✅ **All Core Features Work** - Full functionality in Guest Mode
 - 📋 **Export Regularly** - Back up your library via Settings → Export
 - 🔜 **Authentication Fix Planned** - Expected in future release
