@@ -2,7 +2,7 @@
 
 > A modern Progressive Web App (PWA) for managing your physical book collection with cloud sync, reading progress tracking, and beautiful adaptive themes.
 
-[![Version](https://img.shields.io/badge/version-1.1.0-blue)](https://github.com/YTFL/HonZuki-BookTracker)
+[![Version](https://img.shields.io/badge/version-2.13.0-blue)](https://github.com/YTFL/HonZuki-BookTracker)
 [![Next.js](https://img.shields.io/badge/Next.js-16.0-black)](https://nextjs.org/)
 [![Firebase](https://img.shields.io/badge/Firebase-11.9-orange)](https://firebase.google.com/)
 [![License](https://img.shields.io/badge/license-Freeware-green)](LICENSE)
@@ -257,5 +257,6 @@ If you find HonZuki useful, please consider giving it a star! ⭐
 ---
 
 **Made with ❤️ for book lovers, by a book lover**
+
 
 *Happy Reading!*
