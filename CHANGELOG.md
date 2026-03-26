@@ -6,6 +6,41 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ---
+
+## [2.15.0] - 2026-03-26
+### ✨ Added
+- **Series index** - Modernized series listing with compact cards, fixed-size icon containers, and clearer stat tiles showing Read / Owned / Total counts. Removed the top accent strip, footer chevrons, and the redundant progress header for a cleaner, more compact layout.
+- **Shelves index** - Modernized shelves listing with a create panel, in-page search, and redesigned shelf cards. Removed the "Build Your Reading Zones" hero card to reduce visual clutter.
+- **Subshelves** - Added nested subshelves under shelves with create, rename, delete, and book assignment support.
+- **Subshelf add-books flow** - Added dedicated route for managing subshelf membership (`/shelves/[id]/subshelves/[subshelfId]/add-books`).
+- **Shelf-specific book actions** - Added per-book quick actions on shelf cards to remove from shelf, remove from current subshelf, and add to another subshelf.
+- **Shelf icon system** - Added user-selectable shelf icons for create/edit flows and rendering across shelves and sharing surfaces.
+- **Icon picker expansion** - Added categorized Iconify-based icon options while preserving the default Lucide shelf icon.
+- **Publisher sharing** - Added new `publisher` share type across create, edit, public, and count/update logic.
+- **Shelf share visibility controls** - Added per-subshelf visibility toggles for shelf shares, including public-page filtering.
+
+### ♻️ Changed
+- Unified card layout and icon sizing between Series and Shelves for consistent alignment and improved readability across pages.
+- Redesigned shelf details with a cleaner, category-style layout (stats card, subshelf management section, improved controls).
+- Updated shelf and subshelf book ordering to natural alphabetical sorting for consistent browsing.
+- Improved back-navigation behavior in add flows by using history-aware navigation.
+- Enhanced share creation step UI to a cleaner two-column option layout and improved selected/hover icon states.
+- Updated shelf CSV export/import compatibility to include optional shelf icon data.
+
+### 🐛 Fixed
+- Removed visual clutter by removing the series card top accent strip and the Shelves hero card.
+- Fixed runtime error caused by stale `ManageSubshelfBooksDialog` references on shelf details.
+- Fixed event propagation on shelf book action menus that could navigate to book details unintentionally.
+- Fixed Firestore permission issues for subshelf creation and validation edge cases for new share/shelf fields.
+- Fixed icon picker dialog overflow issues by constraining dialog body and enabling proper internal scrolling.
+- Fixed step-1 share option icon hover inversion so icons follow card hover foreground styling.
+
+### 🧹 Cleanup
+- Removed deprecated/unused subshelf dialog implementation replaced by the dedicated add-books page flow.
+- Removed temporary debug logging and unused imports introduced during subshelf implementation.
+
+---
+
 ## [2.14.0] - 2026-03-25
 ### ✨ Added
 - **Publisher pages** - Dedicated publisher detail page (`/publishers/[name]`) with overview, responsive statistics, filters, and a books list with layout/sort controls.
