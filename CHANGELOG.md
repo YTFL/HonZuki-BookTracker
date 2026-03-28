@@ -7,6 +7,45 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.16.0] - 2026-03-28
+### ✨ Added
+- **Achievements platform rollout** - Added full achievements feature set with tier/category definitions, unlock detection, unlock toasts, dedicated achievements index/detail pages, and home/profile achievement surfacing.
+- **Locked-achievement progress UI** - Added per-achievement progress display on achievement detail pages for not-yet-unlocked achievements.
+- **Achievement state tracking** - Added user achievement state support for latest unlock, recent unlock list, and viewed status handling.
+- **Public profile sharing** - Added shareable public profile links, profile share action, and dedicated public profile route (`/p/[shareId]`).
+- **Unified public profile rendering** - Added public-view mode using the same profile renderer as signed-in profiles for visual parity.
+- **Profile XP/Level module** - Added reusable XP/level utility layer and integrated it into profile header rendering.
+- **Circular level avatar** - Added reusable circular progress avatar with level badge for profile identity/progression display.
+- **Historical achievement reconciliation script** - Added admin script to backfill historically accurate unlock dates for existing achievement records.
+
+### ♻️ Changed
+- **Profile achievements behavior** - Changed profile achievements from "recent only" to showing all unlocked achievements.
+- **Profile labeling** - Non-own profile titles now display as "<username>'s Profile" for clearer ownership context.
+- **Friends surface status** - Friends page now explicitly displays "Coming Soon" while social interactions are staged.
+- **Sidebar IA** - Reordered navigation below Stats to `Profile → Achievements → Friends`.
+- **Share behavior by platform** - On Windows, profile share now directly copies link; on other platforms native share is used when available.
+- **Relationship CTA behavior** - Non-own profile header now shows disabled "Send Friend Request" state to avoid unfinished-flow actions.
+- **XP economy redesign** - Rebalanced XP sources to event-based rewards: book add (+5), book start (+10 once per book), book completion (+20), series completion (+40), every 100 pages (+15), and tier-based achievement XP (basic +60, advanced +120, elite +250).
+- **Level progression redesign** - Updated progression curve and raised cap to level 30 with tuned early/mid/late/endgame scaling.
+- **Post-cap progression behavior** - XP beyond cap now remains visible as banked XP and is retained for future level-cap increases.
+
+### 🐛 Fixed
+- **Historical unlock-date accuracy** - Fixed legacy achievements with inaccurate unlock chronology by reconciling from historical reading/shelf/series activity.
+- **Public profile data gaps** - Fixed public profiles not loading currently reading, avatar, and shelves in some cases.
+- **Public/shared read access** - Fixed permission/rule gaps affecting public profile and shared profile data reads.
+- **Public profile parity regressions** - Fixed mismatches between private and public profile rendering paths.
+- **Share UX reliability on Windows** - Fixed inconsistent share flow by enforcing clipboard-first behavior on Windows.
+
+### 🔒 Security / Rules
+- Added/updated Firestore rules for `public_profile_shares` schema validation and active-share-gated reads.
+- Extended rule coverage for public/shared profile rendering, including profile-related subcollections and achievements read paths.
+
+### 🧪 Data / Ops
+- Executed achievement unlock-date reconciliation in dry-run and live modes with expected unlock document updates.
+- Verified production build success and deployed updated Firestore rules.
+
+---
+
 ## [2.15.0] - 2026-03-26
 ### ✨ Added
 - **Series index** - Modernized series listing with compact cards, fixed-size icon containers, and clearer stat tiles showing Read / Owned / Total counts. Removed the top accent strip, footer chevrons, and the redundant progress header for a cleaner, more compact layout.
