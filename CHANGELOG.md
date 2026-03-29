@@ -24,11 +24,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Profile architecture** - Removed `public_profile_shares` collection entirely - all profiles are now public by default without requiring share action.
 - **Firestore schema** - Added `usernameLower` field to public_profiles and created new `profile_usernames` collection for unique username claims.
 - **Search UX** - Changed from live-as-you-type search to explicit search button for username lookup to improve security and intent clarity.
+- **Reading time format** - Updated reading time display to show days, hours, and minutes (e.g., "2d 3h 45m") for better granularity.
 
 ### 🐛 Fixed
 - **Firestore permissions** - Updated friend_requests and friends collection read rules to allow existence checks via `get`/`list` operations for authenticated users.
 - **Username claim enforcement** - Implemented transactional username assignment at profile creation and update to ensure uniqueness.
 - **Relationship lookups** - Fixed friend request and friendship existence checks to support bidirectional relationship queries.
+- **Profile stats accuracy** - Fixed pages read and reading time calculations on profile stats cards to match stats page exact same logic and behavior, including using global reading speed preference and proper effective reading speed calculation.
 
 ### 🔒 Security / Rules
 - Added/updated Firestore rules for `friend_requests` collection (send/receive/respond operations).
