@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [2.18.0] - 2026-03-29
+## [2.17.0] - 2026-03-29
 ### ✨ Added
 - **Social identity system** - Added unique `@username` for each user alongside display name for public identity and friend discovery.
 - **Copy username button** - Added icon-only copy button on profile header (shows check icon on success) to quickly copy username handle.
