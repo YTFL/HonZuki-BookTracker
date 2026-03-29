@@ -7,6 +7,44 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.18.0] - 2026-03-29
+### ✨ Added
+- **Social identity system** - Added unique `@username` for each user alongside display name for public identity and friend discovery.
+- **Copy username button** - Added icon-only copy button on profile header (shows check icon on success) to quickly copy username handle.
+- **Friends page** - Implemented fully functional Friends hub with three tabs: Find Friends (search), Friends list, and Friend Requests (incoming).
+- **Username search with exact matching** - Added secure username search with exact-match-only mode triggered by search button (or Enter key) to prevent accidental requests to wrong users.
+- **Friend request system** - Added bidirectional friend request flow: send requests, accept/reject incoming requests, and remove friends.
+- **Relationship status display** - Profile header now shows user's relationship status with visitors (Friends badge, Request Pending, or Add Friend button).
+- **View profile button** - Added "View Profile" button in username search results alongside "Add" button for safer friend discovery.
+- **Username normalization script** - Added admin tool to normalize existing user usernames for consistency (3-30 chars, lowercase, safe charset). Supports `--dry-run` flag.
+
+### ♻️ Changed
+- **Profile identity split** - Separated profile display name (free-form) from unique @username (handle) across all UI.
+- **Public profile URLs** - Switched from UID-based `/p/[userId]` to username-based `/p/[username]` with legacy UID fallback.
+- **Profile architecture** - Removed `public_profile_shares` collection entirely - all profiles are now public by default without requiring share action.
+- **Firestore schema** - Added `usernameLower` field to public_profiles and created new `profile_usernames` collection for unique username claims.
+- **Search UX** - Changed from live-as-you-type search to explicit search button for username lookup to improve security and intent clarity.
+
+### 🐛 Fixed
+- **Firestore permissions** - Updated friend_requests and friends collection read rules to allow existence checks via `get`/`list` operations for authenticated users.
+- **Username claim enforcement** - Implemented transactional username assignment at profile creation and update to ensure uniqueness.
+- **Relationship lookups** - Fixed friend request and friendship existence checks to support bidirectional relationship queries.
+
+### 🔒 Security / Rules
+- Added/updated Firestore rules for `friend_requests` collection (send/receive/respond operations).
+- Added/updated Firestore rules for `friends` collection (apply-after-request-accepted, bidirectional management).
+- Added/updated Firestore rules for `profile_usernames` collection (owner-managed unique claims).
+- Removed rules for deprecated `public_profile_shares` collection.
+- Changed public_profiles read from gated to public-readable.
+- Added `get`/`list` permissions for authenticated users to support existence checks during friend operations.
+
+### 🧪 Data / Ops
+- Executed username normalization for all existing user profiles (4 profiles processed).
+- Verified username claim system atomic enforcement via Firestore transactions.
+- Validated production build and deployed updated Firestore rules.
+
+---
+
 ## [2.16.0] - 2026-03-28
 ### ✨ Added
 - **Achievements platform rollout** - Added full achievements feature set with tier/category definitions, unlock detection, unlock toasts, dedicated achievements index/detail pages, and home/profile achievement surfacing.
