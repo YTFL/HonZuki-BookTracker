@@ -7,7 +7,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [2.17.0] - 2026-03-29
+## [2.19.0] - 2026-04-20
+### ✨ Added
+- **Premium Yearly Recap overhaul** - Completely redesigned the Yearly Recap card into a high-impact landscape format (800x720) with a cinematic aesthetic.
+- **Reading Activity module** - Added specialized behavioral tracking for "Books per Month", "Pages per Day", and "Reading Time per Day" to providing deeper context to reading habits.
+- **Dynamic "Yearly Insight"** - Implemented an AI-style narrative section that interpret reading patterns (top genre, author resonance, and pace) into a personalized 3-line summary.
+- **Personalized card content** - Year Recap headers now dynamically feature the owner's identity (e.g., "{username}'s Year in Reading") for better shareability.
+- **Full-screen share preview** - Expanded the "Share Stats" modal to occupy 95% of the viewport (up to 1200px) with high-fidelity, auto-scaling previews.
+- **Transparent PNG exports** - Enabled alpha-channel transparency for card corners, allowing perfect rounded silhouettes when shared on social platforms.
+- **Large Format Shell** - Introduced `LargeCardShell` support for consistent accent-bar branding across wide landscape cards.
+
+### ♻️ Changed
+- **Extended rankings** - Increased Top Authors and Top Genres list visibility from 4 to 5 items to provide a more comprehensive overview.
+- **Consolidated Activity UI** - Replaced fragmented stat boxes with a unified "Reading Activity" grid featuring a density-based horizontal divider.
+- **Footer padding refinement** - Increased card footer padding to 16px to ensure branding remains perfectly framed during image generation.
+- **Universal card alignment** - Switched renderer from inline-block to flex-basis to eliminate baseline pixel offsets and whitespace gaps.
+
+### 🐛 Fixed
+- **Multi-genre accuracy** - Fixed calculation logic to correctly parse and count every tag for books with multiple genres (supports both comma-separated strings and arrays).
+- **Layout regession fixes** - Resolved a critical bug where the footer overlapped the summary text on long narratives.
+- **Positioning alignment** - Fixed the "black line" gap artifact at the top of exported images by refining accent bar anchor points.
+
+---
+
+## [2.18.0] - 2026-03-29
 ### ✨ Added
 - **Social identity system** - Added unique `@username` for each user alongside display name for public identity and friend discovery.
 - **Copy username button** - Added icon-only copy button on profile header (shows check icon on success) to quickly copy username handle.
@@ -44,6 +67,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Executed username normalization for all existing user profiles (4 profiles processed).
 - Verified username claim system atomic enforcement via Firestore transactions.
 - Validated production build and deployed updated Firestore rules.
+
+---
+
+## [2.17.0] - 2026-03-29
+### ✨ Added
+- **Shared stats route** - Added dedicated public stats page route for profile shares at `/p/[shareId]/stats`.
+- **Public user stats page** - Added dedicated public user stats page (route: `/user/[id]/stats`) so visitors can open a user's full stats view outside the profile page.
+- **Profile stats navigation CTA** - Added `View Stats` action in profile header to open the route-based stats page.
+
+### ♻️ Changed
+- **Unified stats renderer** - Refactored stats UI into a reusable shared component so own stats, user stats, and shared stats render the same layout and logic.
+- **Stats page composition** - Updated `/stats` to use the shared stats renderer component instead of a standalone page-only implementation.
+- **Context-aware profile routing** - Profile `View Stats` now routes based on context:
+  - own profile → `/stats`
+  - direct user profile → `/user/[id]/stats`
+  - shared profile → `/p/[shareId]/stats`
+
+### 🐛 Fixed
+- **Public stats page title** - Changed shared stats header/title from generic "Shared Stats" to "<username>'s Stats" so public viewers see user-specific labeling.
+- **Stats parity regressions** - Removed inline profile-only detailed stats toggle path and moved stats viewing to dedicated routes to preserve one canonical stats UI.
 
 ---
 
