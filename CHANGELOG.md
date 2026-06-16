@@ -7,6 +7,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.20.0] - 2026-06-16
+### ✨ Added
+- **Premium Yearly Recap Experience** - Implemented a story-driven, slide-based yearly reading recap including cards for first/last book, total finished books, total pages read, quickest finish, longest book, most time spent, total reading time, favorite authors, favorite books, favorite genres, reading pace, reading identity, reading timeline, and final summaries.
+- **Reading Personality Engine** - Added a new reading personality analyzer that generates custom traits and descriptions based on user reading habits.
+- **Reading Timeline & Time Cards** - Introduced new recap cards: `ReadingTimeCard` to display reading duration in days/hours, and `ReadingTimelineCard` to visualize monthly reading activity via a custom CSS chart.
+- **Open Library Integration** - Implemented Open Library Search and ISBN lookup as a secondary fallback data source.
+- **Book Metadata Source Tracking** - Added metadata source badge ('Google Books' or 'Open Library') in search results and add-book forms.
+- **Favorite Series Feature** - Implemented single-click favorite toggling for book series; favoriting/unfavoriting a series updates the favorite status of all constituent books.
+- **Series Favorites Filter** - Added a "Favorites" filter to the series index page to easily filter and view favorited series.
+- **XP Recap Notification** - Integrated custom XP Earned toast notifications when users view their yearly recaps.
+
+### ♻️ Changed
+- **Recap Dimensions & Visuals** - Adjusted `YearlyRecapCard` dimensions and enhanced author and genre score displays in recap cards.
+- **Recap Caching & Flow** - Implemented caching for recap year data and navigation flow, optimizing page load and tracking user progress.
+- **Navigation Buttons** - Added navigation buttons in the `RecapYearPage` and `UserStatsPage` to improve user flow.
+- **Cover Image Handling** - Improved cover image validation, resolution, and caching across multiple book details and list components.
+
+### 🐛 Fixed
+- **Google Books API Quota/Error Bugs** - Fixed API request issues by correctly passing the Google Books API Key and enforcing an 8-second request timeout to prevent hanging searches.
+
+---
+
 ## [2.19.0] - 2026-04-20
 ### ✨ Added
 - **Premium Yearly Recap overhaul** - Completely redesigned the Yearly Recap card into a high-impact landscape format (800x720) with a cinematic aesthetic.
